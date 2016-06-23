@@ -442,10 +442,10 @@ enum CalibrationPhase {
 };
 byte calibrationPhase = calibrationInactive;
 
-struct __attribute__ ((packed)) CalibrationSample {
-  unsigned short minValue:12;
-  unsigned short maxValue:12;
-  byte pass:4;
+struct CalibrationSample {
+  short minValue;
+  short maxValue;
+  int pass;
 };
 CalibrationSample calSampleRows[NUMCOLS][4]; // store four rows of calibration measurements
 CalibrationSample calSampleCols[9][NUMROWS]; // store nine columns of calibration measurements
@@ -456,9 +456,9 @@ struct CalibrationX {
   int32_t fxdRatio;
 };
 
-struct __attribute__ ((packed)) CalibrationY {
-  unsigned short minY:12;
-  unsigned short maxY:12;
+struct CalibrationY {
+  int minY;
+  int maxY;
   int32_t fxdRatio;
 };
 
