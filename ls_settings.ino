@@ -2829,19 +2829,20 @@ void handleGlobalSettingNewTouch() {
               Global.arpOctave = 2;
             }
             break;
-          case 3:
-            if (!isSyncedToMidiClock()) {
-              lightLed(14, 3);
-
-              tapTempoPress();
-
-              delayUsec(100000);
-
-              clearLed(14, 3);
-            }
-            break;
         }
         break;
+    }
+  }
+  
+  if (sensorCol == 14 && sensorRow == 3) {
+    if (!isSyncedToMidiClock()) {
+      lightLed(14, 3);
+
+      tapTempoPress();
+
+      delayUsec(100000);
+
+      clearLed(14, 3);
     }
   }
 
@@ -2957,6 +2958,7 @@ void handleGlobalSettingHold() {
 
   if (isCellPastEditHoldWait()) {
     sensorCell->lastTouch = 0;
+
 
     switch (sensorCol) {
       case 1:

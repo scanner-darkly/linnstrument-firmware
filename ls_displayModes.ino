@@ -1661,7 +1661,7 @@ inline void paintGlobalSettingsFlashTempo(unsigned long now) {
 }
 
 inline void paintGlobalSettingsFlashTempo(unsigned long now, byte col, byte row) {
-  if (!animationActive && !userFirmwareActive) {
+  if (!animationActive) {
     bool flash_on = false;
     if (isVisibleSequencer())
     {
@@ -1857,9 +1857,9 @@ void paintGlobalSettingsDisplay() {
     else if (Global.arpOctave == 2) {
       lightLed(14, 1);
     }
-
-    paintGlobalSettingsFlashTempo(micros());
   }
+
+  paintGlobalSettingsFlashTempo(micros());
 
   if (displayMode == displayGlobalWithTempo) {
     byte color = Split[LEFT].colorMain;
