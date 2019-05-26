@@ -1291,7 +1291,8 @@ void sendReleasedNote() {
 void handleNewUserFirmwareTouch() {
   sensorCell->note = sensorCol;
   sensorCell->channel = sensorRow+1;
-  midiSendNoteOn(LEFT, sensorCell->note, sensorCell->velocity, sensorCell->channel);
+  // midiSendNoteOn(LEFT, sensorCell->note, sensorCell->velocity, sensorCell->channel);
+  multipass_press(sensorCol, sensorRow);
 }
 
 void handleNewControlModeTouch() {
@@ -1696,7 +1697,8 @@ void handleTouchRelease() {
   }
   // user firmware mode has its own mode of operation
   else if (userFirmwareActive) {
-    midiSendNoteOffWithVelocity(LEFT, sensorCell->note, sensorCell->velocity, sensorCell->channel);
+    // midiSendNoteOffWithVelocity(LEFT, sensorCell->note, sensorCell->velocity, sensorCell->channel);
+    multipass_release(sensorCol, sensorRow);
     sensorCell->clearMusicalData();
   }
   // control mode has its own mode of operation

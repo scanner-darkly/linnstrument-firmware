@@ -132,6 +132,7 @@ inline void performContinuousTasks(unsigned long nowMicros) {
   if (clockUpdated) {
     performCheckAdvanceArpeggiator();
     performCheckAdvanceSequencer();
+    multipass_clock();
   }
 
   if (Device.serialMode) {

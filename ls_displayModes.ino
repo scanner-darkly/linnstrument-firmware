@@ -279,7 +279,7 @@ void updateSwitchLeds() {
 
   // highlight global settings yellow when user firmware mode is active
   if (userFirmwareActive) {
-    setLed(0, GLOBAL_SETTINGS_ROW, COLOR_YELLOW, cellOn);
+    setLed(0, GLOBAL_SETTINGS_ROW, COLOR_BLUE, cellOn);
     return;
   }
 
